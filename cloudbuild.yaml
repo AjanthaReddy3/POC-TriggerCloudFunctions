@@ -1,0 +1,30 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - cloudfunction1
+  - --source=./cloudfunction1
+  - --trigger-http
+  - --runtime=python37
+  - --allow-unauthenticated
+  
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - cloudfunction2
+  - --source=./cloudfunction2
+  - --trigger-http
+  - --runtime=python37
+  - --allow-unauthenticated
+  
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - cloudfunction3
+  - --source=./cloudfunction3
+  - --trigger-http
+  - --runtime=python37
+  - --allow-unauthenticated
