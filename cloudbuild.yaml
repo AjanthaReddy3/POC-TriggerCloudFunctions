@@ -3,7 +3,7 @@ steps:
   args:
   - functions
   - deploy
-  - cloudfunction1
+  - hello_world1
   - --source=./cloudfunction1
   - --trigger-http
   - --runtime=python37
@@ -13,7 +13,7 @@ steps:
   args:
   - functions
   - deploy
-  - cloudfunction2
+  - hello_world2
   - --source=./cloudfunction2
   - --trigger-http
   - --runtime=python37
@@ -23,7 +23,7 @@ steps:
   args:
   - functions
   - deploy
-  - cloudfunction3
+  - hello_world3
   - --source=./cloudfunction3
   - --trigger-http
   - --runtime=python37
