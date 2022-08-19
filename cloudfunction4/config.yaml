@@ -10,4 +10,3 @@ steps:
   - --allow-unauthenticated
   env:
   - 'avg_temp=50'
-  - 'new_measure=2020-02-10'
