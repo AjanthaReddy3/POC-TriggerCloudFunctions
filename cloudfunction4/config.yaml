@@ -3,7 +3,7 @@ steps:
   args:
   - functions
   - deploy
-  - avgtemp-threshold
+  - avgtemp-threshold_envvar
   - --source=.
   - --trigger-http
   - --runtime=python37
