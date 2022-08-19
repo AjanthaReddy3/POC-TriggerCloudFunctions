@@ -9,4 +9,4 @@ steps:
   - --runtime=python37
   - --allow-unauthenticated
   env:
-  - 'avg_temp=45'
+  - 'avg_temp=40'
