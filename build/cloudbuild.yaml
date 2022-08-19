@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - functions
+  - deploy
+  - avgtemp-threshold_envvar
+  - --source=.
+  - --trigger-http
+  - --runtime=python37
+  - --allow-unauthenticated
+  env:
+  - 'avg_temp=40'
