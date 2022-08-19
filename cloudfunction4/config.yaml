@@ -10,4 +10,4 @@ steps:
   - --allow-unauthenticated
   serviceAccount: 'kafka-service-account@pg-us-e-app-588206.iam.gserviceaccount.com'
   env:
-  - 'avg_temp=45'
+  - 'avg_temp=40'
