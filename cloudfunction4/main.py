@@ -1,7 +1,9 @@
 from google.cloud import bigquery
+import os
 
 def query_avgtemp(request):
   client = bigquery.Client()
+  avg_temp=os.environ.get('avg_temp')
   query=  """
   SELECT location,average_temperature,latest_measurement 
   FROM `pg-us-e-app-588206.sample_data.table2` 
