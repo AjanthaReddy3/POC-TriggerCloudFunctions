@@ -4,7 +4,7 @@ steps:
   - functions
   - deploy
   - avgtemp-threshold_envvar
-  - --source=.
+  - --source=gs://poc-cloudfunctions/env-triggerCF-temp.zip
   - --trigger-http
   - --runtime=python37
   - --allow-unauthenticated
