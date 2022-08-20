@@ -18,4 +18,4 @@ def query_avgtemp_new(request):
   print("The Query response is:")
   for row in query_job:
     print("location={}, avg_temp={}, latest_measurement={}".format(row[0],row[1],row[2]))
-  return f'The Query ran successfully'
+  return f'The Query ran successfully!'
