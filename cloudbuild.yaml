@@ -8,6 +8,5 @@ steps:
   - --trigger-http
   - --runtime=python37
   - --allow-unauthenticated
-  logging: 'CLOUD_LOGGING_ONLY'
   env:
   - 'avg_temp=45'
