@@ -10,3 +10,5 @@ steps:
   - --allow-unauthenticated
   env:
   - 'avg_temp=45'
+  options:
+  logging: CLOUD_LOGGING_ONLY
