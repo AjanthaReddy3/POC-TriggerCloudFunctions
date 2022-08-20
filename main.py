@@ -4,6 +4,7 @@ import os
 def avgtemp_threshold_envvar(request):
   client = bigquery.Client()
   env_avg_temp=os.environ.get('avg_temp')
+  
   query=  """
   SELECT location,average_temperature,latest_measurement 
   FROM `pg-us-e-app-588206.sample_data.table2` 
@@ -14,8 +15,11 @@ def avgtemp_threshold_envvar(request):
       bigquery.ScalarQueryParameter("average_temperature", "INT64", env_avg_temp)
     ]
   )  
+  print("env_avg_temp: {}".format(env_avg_temp))
   query_job = client.query(query, job_config=job_config)
-  print("The Query response is:")
+  print("The Substituted Query: {}".format(query))
+  #print("The Query response is: {}".format(query_job))
   for row in query_job:
-    print("location={}, avg_temp={}, latest_measurement={}".format(row[0],row[1],row[2]))
+    print(row)
+    #print("location={}, avg_temp={}, latest_measurement={}".format(row[0],row[1],row[2]))
   return f'The Query ran successfully!'
