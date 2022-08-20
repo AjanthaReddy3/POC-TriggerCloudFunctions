@@ -1,7 +1,7 @@
 from google.cloud import bigquery
 import os
 
-def query_avgtemp_new(request):
+def avgtemp_threshold_envvar(request):
   client = bigquery.Client()
   env_avg_temp=os.environ.get('avg_temp')
   query=  """
