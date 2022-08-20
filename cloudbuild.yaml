@@ -8,6 +8,5 @@ steps:
   - --trigger-http
   - --runtime=python37
   - --allow-unauthenticated
-  entrypoint: 'query_avgtemp_new'
   env:
   - 'avg_temp=40'
