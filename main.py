@@ -35,8 +35,9 @@ def avgtemp_threshold_envvar(request):
 
     extract_job=client.extract_table(
       table_ref,
-      destination_uri,
-      location='US')
-    extract_job.result()	
+      destination_uri)
+    extract_job.result()
+  trigger_DAG()
 
+  
   return f'The Query ran successfully!'
