@@ -14,12 +14,29 @@ def avgtemp_threshold_envvar(request):
     query_parameters=[
       bigquery.ScalarQueryParameter("average_temperature", "INT64", env_avg_temp)
     ]
-  )  
+  ) 
+  table_ref=client.dataset("sample_data").table("table3")
+  job_config.destination=table_ref
+  job_config.create_disposition = 'CREATE_IF_NEEDED'
+  job_config.write_disposition = 'WRITE_TRUNCATE'
   print("env_avg_temp: {}".format(env_avg_temp))
   query_job = client.query(query, job_config=job_config)
   print("The Substituted Query: {}".format(query))
   #print("The Query response is: {}".format(query_job))
-  for row in query_job:
-    print(row)
-    #print("location={}, avg_temp={}, latest_measurement={}".format(row[0],row[1],row[2]))
+  results=query_job.result()
+  if results.total_rows == 0:
+    print ("There are no records with average Temperature > threshold.")
+  else:
+    for row in query_job:
+      print(row)
+    destination_uri="gs://poc-cloudfunctions/avgtemp_threshold.csv"
+    dataset_ref=client.dataset("sample_data", project="pg-us-e-app-588206")
+    table_ref=dataset_ref.table("table3")
+
+    extract_job=client.extract_table(
+      table_ref,
+      destination_uri,
+      location='US')
+    extract_job.result()	
+
   return f'The Query ran successfully!'
