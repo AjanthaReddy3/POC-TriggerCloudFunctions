@@ -11,5 +11,4 @@ steps:
   - --env-vars-file=.env.yaml
   - --service-account=kafka-service-account@pg-us-e-app-588206.iam.gserviceaccount.com
 options:
- logging: CLOUD_LOGGING_ONLY
-
+  logging: CLOUD_LOGGING_ONLY
