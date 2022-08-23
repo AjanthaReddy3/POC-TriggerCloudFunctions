@@ -23,15 +23,15 @@ def avgtemp_threshold_envvar(request):
   #print("The Query response is: {}".format(query_job))
   results=query_job.result()
   if results.total_rows == 0:
-  print ("There are no records with average Temperature > threshold.")
+    print ("There are no records with average Temperature > threshold.")
   else:
-  for row in query_job:
-  print(row)
-  destination_uri="gs://poc-cloudfunctions/avgtemp_threshold.csv"
-  dataset_ref=client.dataset("sample_data", project="pg-us-e-app-588206")
-  table_ref=dataset_ref.table("table3")
-  extract_job=client.extract_table(
-  table_ref,
-  destination_uri)
-  extract_job.result()
+    for row in query_job:
+      print(row)
+    destination_uri="gs://poc-cloudfunctions/avgtemp_threshold.csv"
+    dataset_ref=client.dataset("sample_data", project="pg-us-e-app-588206")
+    table_ref=dataset_ref.table("table3")
+    extract_job=client.extract_table(
+    table_ref,
+    destination_uri)
+    extract_job.result()
   return f'The Query ran successfully!'
