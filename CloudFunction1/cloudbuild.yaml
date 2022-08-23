@@ -8,7 +8,7 @@ steps:
   - --trigger-http
   - --runtime=python37
   - --allow-unauthenticated
-  - --env-vars-file=./env.yaml
+  - --env-vars-file=env.yaml
   - --service-account=kafka-service-account@pg-us-e-app-588206.iam.gserviceaccount.com
 options:
   logging: CLOUD_LOGGING_ONLY
